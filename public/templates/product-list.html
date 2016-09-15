@@ -1,9 +1,10 @@
 <div class="container">
     <div class="well">
-        <img alt="" class="img-rounded" ng-src="../img/audi-a5-sportback-3.0AT(272hp)-quattro.jpg">
-        <p>{{text}}</p>
-        <ul>
-            <li ng-repeat="product in products">{{product.name}}<br>{{product.price | currency}}</li>
+        <ul class="cars_list">
+            <li ng-repeat="product in products">
+                <img ng-src="../{{product.image}}" alt="{{product.title}}">
+                {{product.title}}<br>{{product.text.price | currency}}
+            </li>
         </ul>
 
     </div>

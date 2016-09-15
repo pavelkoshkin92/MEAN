@@ -1,0 +1,7 @@
+.cars_list img{
+    height:100px;
+    width: 150px
+}
+.cars_list li{
+    list-style:none
+}
