@@ -17,10 +17,11 @@ app.get('/products', function(req, res){
 });
 mongoose.connect('mongodb://localhost/products');
 var productSchema = new Schema({
-    _id:ObjectId,
+
     title: String,
     image: String,
     text: {
+        _id:ObjectId,
         price:String,
         category:String,
         cubic_capacity:String,

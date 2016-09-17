@@ -1,7 +1,10 @@
-.cars_list img{
+.cars-list img{
     height:100px;
     width: 150px
 }
-.cars_list li{
-    list-style:none
+.sortorder:after {
+    content: '\25b2';   // BLACK UP-POINTING TRIANGLE
+}
+.sortorder.reverse:after {
+    content: '\25bc';   // BLACK DOWN-POINTING TRIANGLE
 }

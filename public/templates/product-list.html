@@ -1,13 +1,36 @@
 <div class="container">
-    <div class="well">
-        <ul class="cars_list">
-            <li ng-repeat="product in products">
-                <img ng-src="../{{product.image}}" alt="{{product.title}}">
-                {{product.title}}<br>{{product.text.price | currency}}
-            </li>
-        </ul>
+    <div class="row">
+        <div class="col-md-1">
+            <p>Сортировать по:</p>
+            <div class="btn-group-vertical">
+                <button type="button" class="btn btn-primary" ng-click="sortBy('title')">Имени
+                    <span class="sortorder" ng-show="propertyName === 'title'" ng-class="{reverse: reverse}"></span>
+                </button>
 
+                <button type="button" class="btn btn-primary" ng-click="sortBy('text.price')">Цене
+                    <span class="sortorder" ng-show="propertyName === 'text.price'" ng-class="{reverse: reverse}"></span>
+                </button>
+
+            </div>
+        </div>
+        <div class="col-md-11">
+            <div class="list-group cars-list" >
+                <a href="" class="list-group-item" ng-repeat="product in products | filter: search | orderBy:propertyName:reverse">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img ng-src="../{{product.image}}" alt="{{product.title}}" class="img-thumbnail">
+                        </div>
+                        <div class="col-md-10">
+                            <h3>{{product.title}}</h3>
+                            <strong>Цена: {{product.text.price | currency}}</strong>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
+
+
 
 </div>
 
