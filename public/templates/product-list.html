@@ -15,7 +15,7 @@
         </div>
         <div class="col-md-11">
             <div class="list-group cars-list" >
-                <a href="/products/{{product._id}}" class="list-group-item" ng-repeat="product in products | filter: search | orderBy:propertyName:reverse">
+                <a href="#!/products/{{product._id}}" class="list-group-item" ng-repeat="product in products | filter: search | orderBy:propertyName:reverse">
                     <div class="row">
                         <div class="col-md-2">
                             <img ng-src="../{{product.image}}" alt="{{product.title}}" class="img-thumbnail">

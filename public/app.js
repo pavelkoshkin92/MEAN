@@ -1,12 +1,13 @@
 'use strict';
 
 angular.module('storeApp', ['ngResource', 'ngRoute'])
-    .controller('mainCtrl', function($scope, $http){
+    .controller('mainCtrl', function($scope, Product){
 
-        $http.get('/products').success(function(response){
-            console.log("A got the data I requested");
-            $scope.products = response;
-        });
+        // $http.get('/products').success(function(response){
+        //     console.log("A got the data I requested");
+        //     $scope.products = response;
+        // });
+        $scope.products = Product.query();
 
         $scope.propertyName = 'title';
         $scope.reverse = false;
@@ -17,4 +18,7 @@ angular.module('storeApp', ['ngResource', 'ngRoute'])
         };
 
     });
+
+
+    
 
