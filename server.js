@@ -1,27 +1,29 @@
 var express = require('express');
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-
 var bodyParser = require('body-parser');
+
+var Schema = mongoose.Schema;
 
 var app = express();
 
 app.use(express.static(__dirname + "/public/"));
 app.get('/products', function(req, res){
     console.log("I received a GET request!");
-    mongoose.model('products').find(function(err,products){
+    products.find(function(err,products){
         res.send(products)
     })
 
 
 });
+
+
+
 mongoose.connect('mongodb://localhost/products');
 var productSchema = new Schema({
 
     title: String,
     image: String,
     text: {
-        _id:ObjectId,
         price:String,
         category:String,
         cubic_capacity:String,

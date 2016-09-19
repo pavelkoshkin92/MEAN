@@ -10,8 +10,8 @@ config(['$locationProvider' ,'$routeProvider',
         when('/products', {
             templateUrl: 'templates/product-list.html'
         }).
-        when('/app/products/:productId', {
-            template: '<product-detail></product-detail>'
+        when('/products/:productId', {
+            templateUrl: 'templates/product-detail.html'
         }).
         otherwise('/products');
     }
