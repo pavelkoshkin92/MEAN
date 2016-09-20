@@ -30,7 +30,7 @@ app.get('/products', function(req, res){
 app.get("/products/:id", function(req, res) {
     products.findOne({ _id: req.params.id }, function(err, doc) {
         if (err) {
-            handleError(res, err.message, "Failed to get contact");
+            handleError(res, err.message, "Failed to get product");
         } else {
             res.status(200).json(doc);
         }
