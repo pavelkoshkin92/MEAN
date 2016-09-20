@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Store</title>
+    <script src="library/jquery/dist/jquery.js"></script>
     <link rel="stylesheet" href="library/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="library/bootstrap/dist/css/bootstrap-theme.css" />
+    <script src="library/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
     <link rel="stylesheet" href="assets/app.css">
-    <script src="library/jquery/dist/jquery.js"></script>
+
+
     <script src="library/angular/angular.js"></script>
     <script src="library/angular-resource/angular-resource.js"></script>
     <script src="library/angular-route/angular-route.js"></script>
@@ -15,26 +20,11 @@
     <script src="app.config.js"></script>
     <script src="product.service.js"></script>
     <script src="controllers/product-detail.js"></script>
+    <script src="navigation.js"></script>
 
 </head>
 <body  ng-controller="mainCtrl">
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#/products">TheCarStore</a>
-        </div>
-        <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Поиск" ng-model="search">
-            </div>
-
-        </form>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Зарегистрироваться</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Войти</a></li>
-        </ul>
-    </div>
-</nav>
+<navigation></navigation>
 <div class="view-container">
     <div ng-view class="view-frame"></div>
 </div>
