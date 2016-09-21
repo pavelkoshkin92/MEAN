@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('storeApp', ['ngResource', 'ngRoute', 'navigation'])
+angular.module('storeApp', ['ngResource', 'ngRoute', 'navigation', 'register'])
     .controller('mainCtrl', function($scope, Product){
         $scope.products = Product.query();
         $scope.propertyName = 'title';

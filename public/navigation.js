@@ -8,6 +8,13 @@ angular.module('navigation', [])
             controller: 'navCtrl'
         }
     })
+    .directive('eatClick', function() {
+        return function(scope, element, attrs) {
+            $(element).click(function(event) {
+                event.preventDefault();
+            });
+        }
+    })
     .controller('navCtrl', function($scope){
-        
+
     });

@@ -14,6 +14,7 @@ config(['$locationProvider' ,'$routeProvider',
             templateUrl: 'templates/product-detail.html',
             controller: 'productDetailCtrl'
         }).
+        
         otherwise('/products');
     }
 ]);
