@@ -4,7 +4,7 @@ angular.
 module('storeApp').
 factory('Product', ['$resource',
     function($resource) {
-        return $resource('products/:productId', {
+        return $resource('api/products/:productId', {
             productId: '@productId'
         });
     }

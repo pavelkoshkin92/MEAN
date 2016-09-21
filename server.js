@@ -7,27 +7,21 @@ var bodyParser = require('body-parser');
 var Schema = mongoose.Schema;
 
 var app = express();
+mongoose.connect('mongodb://localhost/products');
 
 app.use(express.static(__dirname + "/public/"));
-app.get('/products', function(req, res){
+
+var apiRoutes = express.Router();
+
+apiRoutes.get('/products', function(req, res){
     console.log("I received a GET request!");
     products.find(function(err,products){
         res.send(products)
     })
 
 });
-// app.get('products/:productId', function(req, res){
-//     products.findOne({
-//         _id: req.params.productId
-//
-//     },
-//     function(err, product){
-//         res.send(product)
-//     });
-//     console.log('I received product-detail request');
-//
-// });
-app.get("/products/:id", function(req, res) {
+
+apiRoutes.get("/products/:id", function(req, res) {
     products.findOne({ _id: req.params.id }, function(err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to get product");
@@ -37,10 +31,13 @@ app.get("/products/:id", function(req, res) {
     });
 });
 
+apiRoutes.post('/register',function(req, res) {
+
+});
 
 
 
-mongoose.connect('mongodb://localhost/products');
+
 var productSchema = new Schema({
 
     title: String,
@@ -57,6 +54,16 @@ var productSchema = new Schema({
         wheel_drive:String
     }
 });
+
+var userSchema = new Schema({
+    username: String,
+    password: String
+});
+
 var products = mongoose.model('products', productSchema);
+var users = mongoose.model('users', userSchema);
+
+
+app.use('/api', apiRoutes);
 app.listen(3000);
 console.log('Server running on port 3000');
