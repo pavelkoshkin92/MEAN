@@ -9,5 +9,8 @@ angular.module('register', [])
         }
     })
     .controller('regCtrl', function($scope){
-
+        $scope.user = {
+            name: '',
+            password: ''
+        }
     });
