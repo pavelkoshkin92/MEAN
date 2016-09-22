@@ -9,11 +9,17 @@
             </div>
         </form>
 
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right" ng-hide="isAuthenticated()">
             <li><a href="#modal-1" eat-click data-toggle="modal"><span class="glyphicon glyphicon-user"></span> Зарегистрироваться</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Войти</a></li>
+            <li><a href="#modal-2" eat-click data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> Войти</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" ng-show="isAuthenticated()">
+            <li><p>{{memberinfo}}</p></li>
+            <li><p>{{isAuthenticated()}}</p></li>
+            <li><a href="" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Выйти</a></li>
         </ul>
     </div>
 </nav>
 
 <register></register>
+<login></login>

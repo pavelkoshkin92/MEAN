@@ -15,6 +15,22 @@ angular.module('navigation', [])
             });
         }
     })
-    .controller('navCtrl', function($scope){
+    .controller('navCtrl', function($scope, AuthService, API_ENDPOINT, $http){
+        $scope.destroySession = function() {
+            AuthService.logout();
+        };
+
+        $scope.getInfo = function() {
+            $http.get(API_ENDPOINT.url + '/memberinfo').then(function(result) {
+                $scope.memberinfo = result.data.msg;
+            });
+        };
+
+        $scope.logout = function() {
+            AuthService.logout();
+
+        };
+        $scope.isAuthenticated = AuthService.isAuthenticated;
+        console.log(AuthService.isAuthenticated())
 
     });

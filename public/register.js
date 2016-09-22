@@ -8,9 +8,19 @@ angular.module('register', [])
             controller: 'regCtrl'
         }
     })
-    .controller('regCtrl', function($scope){
+    .controller('regCtrl', function($scope, AuthService){
         $scope.user = {
             name: '',
             password: ''
+        };
+        $scope.register = function(){
+            AuthService.register($scope.user).then(function(msg) {
+                $scope.message = msg;
+                
+            }, function(errMsg) {
+                $scope.message = errMsg
+            });
         }
+
+
     });

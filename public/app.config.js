@@ -8,13 +8,14 @@ config(['$locationProvider' ,'$routeProvider',
 
         $routeProvider.
         when('/products', {
-            templateUrl: 'templates/product-list.html'
+            templateUrl: 'templates/product-list.html',
+            controller: 'productListCtrl'
         }).
         when('/products/:productId', {
             templateUrl: 'templates/product-detail.html',
             controller: 'productDetailCtrl'
         }).
-        
+
         otherwise('/products');
     }
 ]);
