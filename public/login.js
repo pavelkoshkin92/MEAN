@@ -16,9 +16,13 @@ angular.module('login', [])
         $scope.login = function() {
             AuthService.login($scope.user).then(function(msg) {
                 $location.path('/products');
+                $scope.getInfo();
+                $('#modal-2').modal('hide');
+                $scope.user.name = '';
+                $scope.user.password = ''
 
             }, function(errMsg) {
-                $scope.message = errMsg
+                $scope.errmessage = errMsg
             });
         };
         

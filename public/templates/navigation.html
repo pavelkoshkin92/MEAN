@@ -14,8 +14,8 @@
             <li><a href="#modal-2" eat-click data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> Войти</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right" ng-show="isAuthenticated()">
-            <li><p>{{memberinfo}}</p></li>
-            <li><p>{{isAuthenticated()}}</p></li>
+            <li><p class="navbar-text">{{memberinfo}}</p></li>
+
             <li><a href="" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Выйти</a></li>
         </ul>
     </div>

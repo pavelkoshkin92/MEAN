@@ -16,6 +16,6 @@ config(['$locationProvider' ,'$routeProvider',
             controller: 'productDetailCtrl'
         }).
 
-        otherwise('/products');
+        otherwise({redirectTo: '/products'});
     }
 ]);

@@ -9,5 +9,6 @@ angular.module('storeApp')
             $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
             $scope.propertyName = propertyName;
         };
+        
 
     });

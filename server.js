@@ -92,7 +92,7 @@ apiRoutes.get('/memberinfo', passport.authenticate('jwt', { session: false}), fu
     if (token) {
         var decoded = jwt.decode(token, config.secret);
         User.findOne({
-            name: decoded.name
+            username: decoded.username
         }, function(err, user) {
             if (err) throw err;
 

@@ -31,6 +31,7 @@ angular.module('navigation', [])
 
         };
         $scope.isAuthenticated = AuthService.isAuthenticated;
-        console.log(AuthService.isAuthenticated())
+        $scope.getInfo();
+
 
     });
