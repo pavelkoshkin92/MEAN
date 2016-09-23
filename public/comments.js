@@ -18,7 +18,9 @@ angular.module('comments', [])
         };
 
         $scope.sendMsg = function(){
-            Comment.save($scope.message)
+            Comment.save({productId: $scope.product._id}, $scope.message, function(res){
+
+            })
         }
         
 
