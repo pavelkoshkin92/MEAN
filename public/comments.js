@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('comments', [])
+angular.module('comments', ['jkAngularRatingStars'])
     .directive('comments', function(){
         return {
             restrict: 'E',
@@ -19,7 +19,7 @@ angular.module('comments', [])
 
         $scope.sendMsg = function(){
             Comment.save({productId: $scope.product._id}, $scope.message, function(res){
-
+                $scope.resMsg = res
             })
         }
         

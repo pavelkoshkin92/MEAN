@@ -109,7 +109,7 @@ apiRoutes.get('/memberinfo', passport.authenticate('jwt', { session: false}), fu
 });
 
 apiRoutes.post('/reviews/:productId', function(req, res){
-    if (!req.body.usrname) {
+    if (!req.body.username) {
         res.json({success: false, msg: 'Please pass name.'});
     }
     else if (!req.body.text){
