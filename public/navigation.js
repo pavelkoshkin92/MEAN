@@ -15,23 +15,19 @@ angular.module('navigation', [])
             });
         }
     })
-    .controller('navCtrl', function($scope, AuthService, API_ENDPOINT, $http){
+    .controller('navCtrl', function($scope, AuthService){
         $scope.destroySession = function() {
             AuthService.logout();
         };
 
-        $scope.getInfo = function() {
-            $http.get(API_ENDPOINT.url + '/memberinfo').then(function(result) {
-                $scope.memberinfo = result.data.msg;
-            });
-        };
+        
 
         $scope.logout = function() {
             AuthService.logout();
 
         };
-        $scope.isAuthenticated = AuthService.isAuthenticated;
-        $scope.getInfo();
+
+        
 
 
     });

@@ -19,7 +19,8 @@ angular.module('login', [])
                 $scope.getInfo();
                 $('#modal-2').modal('hide');
                 $scope.user.name = '';
-                $scope.user.password = ''
+                $scope.user.password = '';
+
 
             }, function(errMsg) {
                 $scope.errmessage = errMsg

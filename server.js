@@ -11,6 +11,7 @@ var app = express();
 var apiRoutes = express.Router();
 var products = require('./app/models/products');
 var User = require('./app/models/user');
+var reviews = require('./app/models/reviews');
 var config = require('./config/database');
 var Schema = mongoose.Schema;
 
@@ -99,11 +100,40 @@ apiRoutes.get('/memberinfo', passport.authenticate('jwt', { session: false}), fu
             if (!user) {
                 return res.status(403).send({success: false, msg: 'Authentication failed. User not found.'});
             } else {
-                res.json({success: true, msg: 'Welcome ' + user.username + '!'});
+                res.json({success: true, msg: 'Welcome ' + user.username + '!', usr: {usrname: user.username, usrid: user._id} });
             }
         });
     } else {
         return res.status(403).send({success: false, msg: 'No token provided.'});
+    }
+});
+
+apiRoutes.post('/reviews/:productId', function(req, res){
+    if (!req.body.usrname) {
+        res.json({success: false, msg: 'Please pass name.'});
+    }
+    else if (!req.body.text){
+        res.json({success: false, msg: 'Please write the review.'})
+
+    }
+    else {
+        var newReview = new reviews({
+            id_entry: req.params.productId,
+            created_by:{
+                id_user: req.body.id_user,
+                username: req.body.username,
+            },
+            rate: req.body.rate,
+            text: req.body.text
+
+        });
+        // save the user
+        newReview.save(function(err) {
+            if (err) {
+                return res.json({success: false, msg: err});
+            }
+            res.json({success: true});
+        });
     }
 });
 
