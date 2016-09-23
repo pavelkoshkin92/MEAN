@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('storeApp', ['ngResource', 'ngRoute', 'navigation', 'register', 'login', 'reviews'])
+angular.module('storeApp', ['ngResource', 'ngRoute', 'navigation', 'register', 'login', 'comments'])
     .controller('appCtrl', function($scope, AuthService, AUTH_EVENTS, $window, API_ENDPOINT, $http) {
         $scope.$on(AUTH_EVENTS.notAuthenticated, function(event) {
             AuthService.logout();
@@ -20,6 +20,7 @@ angular.module('storeApp', ['ngResource', 'ngRoute', 'navigation', 'register', '
         else{
             $scope.currentUser = ''
         }
+        $scope.mrr = "rest"
     });
 
 
