@@ -11,7 +11,8 @@ var reviewSchema = new Schema({
         id_user: String,
         username: String,
     },
-    id_entry: String
+    id_entry: String,
+    date: Date
 
 });
 

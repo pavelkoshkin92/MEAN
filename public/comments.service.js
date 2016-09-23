@@ -3,7 +3,7 @@
 angular.
 module('storeApp').
 factory('Comment', ['$resource',
-    function($resource, $scope) {
+    function($resource) {
         return $resource('api/reviews/:productId', {
             productId: "@productId"
         }, {

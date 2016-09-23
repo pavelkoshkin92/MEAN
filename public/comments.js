@@ -14,12 +14,15 @@ angular.module('comments', ['jkAngularRatingStars'])
             text: '',
             id_user: $scope.currentUser.usrname,
             username: $scope.currentUser.usrid,
-            rate: ''
+            rate: '',
+            date: moment().format('LLLL')
         };
 
         $scope.sendMsg = function(){
             Comment.save({productId: $scope.product._id}, $scope.message, function(res){
-                $scope.resMsg = res
+                $scope.resMsg = res;
+                $scope.message.text = '';
+                $scope.message.rate = '';
             })
         }
         

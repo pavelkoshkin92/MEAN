@@ -124,7 +124,8 @@ apiRoutes.post('/reviews/:productId', function(req, res){
                 username: req.body.username,
             },
             rate: req.body.rate,
-            text: req.body.text
+            text: req.body.text,
+            date: req.body.date
 
         });
         // save the user
