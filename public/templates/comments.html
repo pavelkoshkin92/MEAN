@@ -3,9 +3,28 @@
     <div class="col-md-12" class="form-group">
         <jk-rating-stars max-rating="5" rating="message.rate"  >
         </jk-rating-stars>
-        <textarea ng-model="message.text" rows="3" class="form-control" placeholder="Оставьте свой комментарий..."></textarea>
+        <textarea ng-model="message.text" rows="3" class="form-control" placeholder="Оставьте Ваш комментарий..."></textarea>
         <button type="submit" class="btn btn-default" ng-click="sendMsg()">Отправить</button>
         {{message.rate}}
         {{resMsg}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="text-center">Комментарии</h3>
+        <ul class="comments">
+            <li ng-repeat="comment in comments" class="well">
+                <div class="row">
+                    <div class="col-md-6"><strong>{{comment.created_by.username}}</strong></div>
+                    <div class="col-md-6">
+                        <p class="text-right">{{comment.date}}</p>
+                    </div>
+
+                </div>
+
+                <p>Оценка: {{comment.rate}}</p>
+                <blockquote>{{comment.text}}</blockquote>
+            </li>
+        </ul>
     </div>
 </div>

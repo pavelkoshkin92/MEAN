@@ -2,6 +2,9 @@
     height:100px;
     width: 150px
 }
+.comments li{
+    list-style-type: none;
+}
 .sortorder:after {
     content: '\25b2';   // BLACK UP-POINTING TRIANGLE
 }

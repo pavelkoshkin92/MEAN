@@ -121,7 +121,7 @@ apiRoutes.post('/reviews/:productId', function(req, res){
             id_entry: req.params.productId,
             created_by:{
                 id_user: req.body.id_user,
-                username: req.body.username,
+                username: req.body.username
             },
             rate: req.body.rate,
             text: req.body.text,
@@ -136,6 +136,16 @@ apiRoutes.post('/reviews/:productId', function(req, res){
             res.json({success: true});
         });
     }
+});
+
+apiRoutes.get('/reviews/:productId', function(req, res) {
+    reviews.find({ id_entry: req.params.productId }, function(err, doc) {
+        if (err) {
+            handleError(res, err.message, "Failed to get reviews");
+        } else {
+            res.status(200).json(doc);
+        }
+    });
 });
 
 var getToken = function (headers) {

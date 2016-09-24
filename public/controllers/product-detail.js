@@ -7,7 +7,8 @@ angular.module('storeApp')
         Product.get({productId: $routeParams.productId}, function(product){
 
             $scope.product = product;
-            console.log(product)
+            console.log(product);
+            $scope.getMsg();
         });
         
 
