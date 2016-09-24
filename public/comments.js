@@ -17,15 +17,17 @@ angular.module('comments', ['jkAngularRatingStars'])
             rate: '',
             date: moment().format('LLLL')
         };
-        
+
         $scope.sendMsg = function(){
             Comment.save({productId: $scope.product._id}, $scope.message, function(res){
-                $scope.resMsg = res;
+                $scope.resMsg = res.msg;
                 $scope.message.text = '';
                 $scope.message.rate = '';
                 $scope.getMsg();
             })
         };
+
+
         $scope.getMsg = function(){
             $scope.comments = Comment.query({productId: $scope.product._id});
         }

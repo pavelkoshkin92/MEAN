@@ -57,9 +57,9 @@ apiRoutes.post('/register', function(req, res) {
         // save the user
         newUser.save(function(err) {
             if (err) {
-                return res.json({success: false, msg: 'Username already exists.'});
+                return res.json({success: false, msg: 'Пользователь с таким именем уже зарегистрирован.'});
             }
-            res.json({success: true, msg: 'Successful created new user.'});
+            res.json({success: true, msg: 'Вы успешно зарегистрированы.'});
         });
     }
 });
@@ -71,7 +71,7 @@ apiRoutes.post('/login', function(req, res) {
         if (err) throw err;
 
         if (!user) {
-            res.send({success: false, msg: 'Authentication failed. User not found.'});
+            res.send({success: false, msg: 'Пользователь не найден.'});
         } else {
             // check if password matches
             user.comparePassword(req.body.password, function (err, isMatch) {
@@ -81,7 +81,7 @@ apiRoutes.post('/login', function(req, res) {
                     // return the information including token as JSON
                     res.json({success: true, token: 'JWT ' + token});
                 } else {
-                    res.send({success: false, msg: 'Authentication failed. Wrong password.'});
+                    res.send({success: false, msg: 'Неверный пароль.'});
                 }
             });
         }
@@ -110,10 +110,14 @@ apiRoutes.get('/memberinfo', passport.authenticate('jwt', { session: false}), fu
 
 apiRoutes.post('/reviews/:productId', function(req, res){
     if (!req.body.username) {
-        res.json({success: false, msg: 'Please pass name.'});
+        res.json({msg: 'Пожалуйста, войдите в аккаунт.'});
     }
     else if (!req.body.text){
-        res.json({success: false, msg: 'Please write the review.'})
+        res.json({msg: 'Пожалуйста, оставьте отзыв.'})
+
+    }
+    else if (!req.body.rate){
+        res.json({msg: 'Пожалуйста, поставьте оценку.'})
 
     }
     else {
@@ -128,12 +132,12 @@ apiRoutes.post('/reviews/:productId', function(req, res){
             date: req.body.date
 
         });
-        // save the user
+
         newReview.save(function(err) {
             if (err) {
                 return res.json({success: false, msg: err});
             }
-            res.json({success: true});
+            res.json({msg: 'Комментарий успешно отправлен.'});
         });
     }
 });

@@ -20,7 +20,10 @@ angular.module('storeApp', ['ngResource', 'ngRoute', 'navigation', 'register', '
         else{
             $scope.currentUser = ''
         }
-        $scope.mrr = "rest"
+        $scope.logout = function() {
+            AuthService.logout();
+
+        };
     });
 
 

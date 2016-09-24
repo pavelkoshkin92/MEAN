@@ -5,7 +5,7 @@ angular.module('navigation', [])
         return {
             restrict: 'E',
             templateUrl: 'templates/navigation.html',
-            controller: 'navCtrl'
+
         }
     })
     .directive('eatClick', function() {
@@ -14,20 +14,4 @@ angular.module('navigation', [])
                 event.preventDefault();
             });
         }
-    })
-    .controller('navCtrl', function($scope, AuthService){
-        $scope.destroySession = function() {
-            AuthService.logout();
-        };
-
-        
-
-        $scope.logout = function() {
-            AuthService.logout();
-
-        };
-
-        
-
-
     });
