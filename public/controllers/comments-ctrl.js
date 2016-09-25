@@ -8,6 +8,7 @@ angular.module('comments')
             date: moment().format('LLLL')
         };
 
+
         $scope.sendMsg = function(){
             Comment.save({productId: $scope.product._id}, $scope.message, function(res){
                 $scope.resMsg = res.msg;
@@ -20,7 +21,7 @@ angular.module('comments')
 
         $scope.getMsg = function(){
             $scope.comments = Comment.query({productId: $scope.product._id});
-        }
-
+        };
+       
 
     });
