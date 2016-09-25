@@ -26,7 +26,7 @@ app.use(passport.initialize());
 apiRoutes.get('/products', function(req, res){
     console.log("I received a GET request!");
     products.find(function(err,products){
-        res.send(products)
+        res.json(products)
     })
 
 });
