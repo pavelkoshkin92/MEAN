@@ -6,7 +6,6 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var passport = require('passport');
 var jwt = require('jwt-simple');
-// var fs = require('fs');
 var app = express();
 var apiRoutes = express.Router();
 var products = require('./app/models/products');
@@ -23,10 +22,6 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(passport.initialize());
 
-
-// fs.readdirSync(__dirname + '/app/models').forEach(function(filename) {
-//     if (~filename.indexOf('.js')) require(__dirname + '/app/models/' + filename)
-// });
 
 apiRoutes.get('/products', function(req, res){
     console.log("I received a GET request!");
