@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 var reviewSchema = new Schema({
 
-    rate: String,
+    rate: Number,
     text: String,
     created_by:{
         id_user: String,

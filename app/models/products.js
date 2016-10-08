@@ -8,14 +8,14 @@ var productSchema = new Schema({
     title: String,
     image: String,
     text: {
-        price:String,
+        price:Number,
         category:String,
-        cubic_capacity:String,
+        cubic_capacity:Number,
         fuel:String,
         power:String,
-        fuel_consumption:String,
+        fuel_consumption:Number,
         gearbox:String,
-        gearbox_q:String,
+        gearbox_q:Number,
         wheel_drive:String
     }
 });
