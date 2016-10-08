@@ -15,7 +15,7 @@ var config = require('./config/database');
 var Schema = mongoose.Schema;
 
 mongoose.connect(config.database);
-// mongoose.connect('mongodb://pavelkoshkin123:qwerty123@ds041536.mlab.com:41536/pavelkoshkin92meandb');
+
 require('./config/passport')(passport);
 app.use(express.static(__dirname + "/public/"));
 app.use(bodyParser.urlencoded({extended: false}));
